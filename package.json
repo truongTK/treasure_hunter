@@ -1,5 +1,5 @@
 {
-  "name": "treasure-hunter",
+  "name": "get-going",
   "private": true,
   "scripts": {
     "start": "meteor run"
