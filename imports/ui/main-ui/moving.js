@@ -51,7 +51,7 @@ const Moving = React.createClass({
       }, (response, status) =>{
         if (status === 'OK') {
           const distance = response.rows[0].elements[0].distance;
-          if (distance.value < 10000) {// < 100m -> accept take challenge
+          if (distance.value < 200) {// < 100m -> accept take challenge
             Meteor.call('takeChallenge', currentLocation);
           }
           this.setState({
