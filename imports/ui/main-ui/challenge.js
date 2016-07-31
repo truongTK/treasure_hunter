@@ -39,7 +39,7 @@ const Challenge = React.createClass({
           this.state.question ? <p> Câu hỏi: {this.state.question} </p> : <p>WAITING</p>
         }
         <input ref="input"/>
-        <button onClick={this.answer}>Trả lời</button>
+        <button onClick={this.answer} style={{marginLeft: '50px'}}>Trả lời</button>
       </div>
     );
   }

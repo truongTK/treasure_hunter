@@ -4,22 +4,15 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import _ from 'lodash';
 
+const style = {
+  margin: 12,
+};
+
 export default class NotLogin extends Component {
-  onLoginFb() {
-    FB.getLoginStatus(function(response) {
-      if (response.status === 'connected') {
-        console.log('Logged in.');
-      }
-      else {
-        FB.login();
-      }
-    });
-  }
   render() {
     return (
       <div>
         NOT LOGIN. PLEASE LOGIN
-        <button onClick={this.onLoginFb}>Log in by facebook</button>
       </div>
     );
   }

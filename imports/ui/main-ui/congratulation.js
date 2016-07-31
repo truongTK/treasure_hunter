@@ -3,6 +3,17 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import _ from 'lodash';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
+import Chip from 'material-ui/Chip';
+import Avatar from 'material-ui/Avatar';
+import {blue500, Indigo, blue50, indigo900} from 'material-ui/styles/colors';
+
+const style = {
+  width: 110,
+  margin: 10
+};
 
 const Congratulation = React.createClass({
   getInitialState() {
@@ -39,8 +50,12 @@ const Congratulation = React.createClass({
         {
           this.state.gift ? <p>Phần thưởng của bạn là {this.state.gift}</p> : ''
         }
-        <button onClick={this.finish}>Hoàn thành</button>
-        <button onClick={this.share}>Chia sẻ</button>
+        <MuiThemeProvider>
+          <RaisedButton label="Finish" style={style} onClick={this.finish}/>
+        </MuiThemeProvider>
+        <MuiThemeProvider>
+          <RaisedButton label="Share" secondary={true}  style={style} onClick={this.share}/>
+        </MuiThemeProvider>
       </div>
     );
   }

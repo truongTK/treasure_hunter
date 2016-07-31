@@ -14,15 +14,6 @@ import Congratulation from './main-ui/congratulation';
 
 // layout of app
 const App = React.createClass({
-  // loginWithFacebook() {
-  //   Meteor.loginWithFacebook(
-  //     {requestPermissions: ['public_profile']}
-  //     , (err) => {
-  //       console.log(err);
-  //     }
-  //   );
-  // },
-
   renderMain(user) {
     if (!user) {// not login
       return (<NotLogin />);

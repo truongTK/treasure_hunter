@@ -5,6 +5,23 @@ import { createContainer } from 'meteor/react-meteor-data';
 import GoogleMap from './google-map';
 import _ from 'lodash';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
+import Chip from 'material-ui/Chip';
+import Avatar from 'material-ui/Avatar';
+import {blue500, Indigo, blue50, indigo900} from 'material-ui/styles/colors';
+
+const style = {
+  width: 110,
+  margin: 10
+};
+
+const chip_styles = {
+  margin: 4,
+};
+
+
 const Moving = React.createClass({
   getInitialState() {
     return {
@@ -55,13 +72,33 @@ const Moving = React.createClass({
             <GoogleMap currentLocation={Geolocation.currentLocation()} target={this.state.postion.location} />
           </div>
           <div style={{position: 'fixed',zIndex: 1, bottom: 0, left: 0, right: 0, backgroundColor: 'white', padding: '10px'}}>
-            <p>{this.state.postion.textLocation}</p>
-            {
-              this.state.distanceText ?
-                <p>Khoảng cách: {this.state.distanceText}</p> : ''
-            }
-            <button onClick={this.refresh}>CheckIn</button>
-            <button onClick={this.surrender}>Surrender</button>
+            <MuiThemeProvider>
+              <Chip
+              style={chip_styles}
+              backgroundColor={blue50}
+                  >
+                  <Avatar size={32} color={blue50} backgroundColor={indigo900} icon={<FontIcon className="fa fa-home" ></FontIcon>} />
+              {this.state.postion.textLocation}
+              </Chip>
+            </MuiThemeProvider>
+            <MuiThemeProvider>
+              <Chip
+                style={chip_styles}
+                backgroundColor={blue50}
+                    >
+                    <Avatar size={32} color={blue50} backgroundColor={indigo900} icon={<FontIcon className="fa fa-road" ></FontIcon>} />
+                {
+                  this.state.distanceText ?
+                    <span>Khoảng cách: {this.state.distanceText}</span> : ''
+                }
+              </Chip>
+            </MuiThemeProvider>
+            <MuiThemeProvider>
+              <RaisedButton label="CheckIn" secondary={true} style={style} onClick={this.refresh}/>
+            </MuiThemeProvider>
+            <MuiThemeProvider>
+              <RaisedButton label="Surrender" style={style} onClick={this.surrender}/>
+            </MuiThemeProvider>
           </div>
         </div>
       );

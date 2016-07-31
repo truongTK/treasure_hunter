@@ -26,3 +26,4 @@ service-configuration
 mdg:geolocation
 dburles:google-maps
 mrt:facebook-sdk
+fortawesome:fontawesome
